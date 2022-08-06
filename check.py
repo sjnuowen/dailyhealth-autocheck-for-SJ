@@ -203,7 +203,7 @@ class HealthCheckInHelper(ZJULogin):
                 verify_data[0]:verify_data[1],
                 verify_data[2]:verify_data[3],
             }
-            data = {
+            """data = {
                 'sfymqjczrj': '0',
                 'zjdfgj': '',
                 'sfyrjjh': '0',
@@ -311,6 +311,85 @@ class HealthCheckInHelper(ZJULogin):
                 'verifyCode': ''  ,
                 # 👆-----2022.5.19日修改-----👆
                 'internship': '1'
+            }"""
+            #8月6日更新
+            data = {
+                'sfymqjczrj': '0', 
+                'zjdfgj': '',
+                'sfyrjjh': '0',
+                'cfgj': '',
+                'tjgj': '',
+                'nrjrq': '0',
+                'rjka': '',
+                'jnmddsheng': '',
+                'jnmddshi': '',
+                'jnmddqu': '',
+                'jnmddxiangxi': '',
+                'rjjtfs': '',
+                'rjjtfs1': '',
+                'rjjtgjbc': '',
+                'jnjtfs': '',
+                'jnjtfs1': '',
+                'jnjtgjbc': '',
+                # 是否确认信息属实
+                'sfqrxxss': '1',
+                'sfqtyyqjwdg': '',
+                'sffrqjwdg': '',
+                'sfhsjc': '',
+                'zgfx14rfh': '0',
+                'zgfx14rfhdd': '',
+                'sfyxjzxgym': '',
+                # 是否不宜接种人群
+                'sfbyjzrq': '0',
+                'jzxgymqk': '0', # 这里是第三针相关参数，1是已接种第一针，4是已接种第二针（已满6个月），5是已接种第二针（未满6个月），6是已接种第三针，3是未接种
+                'tw': '0',
+                'sfcxtz': '0',
+                'sfjcbh': '0',
+                'sfcxzysx': '0',
+                'jcjg': '',
+                'qksm': '',
+                'sfyyjc': '0',
+                'jcjgqr': '0',
+                'remark': '',
+                'address': formatted_address,
+                'geo_api_info': geo_api_info_dict,
+                'area': "{} {} {}".format(address_component.get("province"), address_component.get("city"),
+                                        address_component.get("district")),
+                'province': address_component.get("province"),
+                'city': address_component.get("city"),
+                # 是否在校：本实例为不在校
+                'sfzx': '0', 
+                'sfjcwhry': '0',
+                'sfjchbry': '0',
+                'sfcyglq': '0',
+                'gllx': '',
+                'glksrq': '',
+                'jcbhlx': '',
+                'jcbhrq': '',
+                'bztcyy': '', 
+                'sftjhb': '0',
+                'sftjwh': '0',
+                'sfjcqz': '0', 
+                'jcqzrq': '',
+                'jrsfqzys': '0',
+                'jrsfqzfy': '0',
+                'sfyqjzgc': '0',
+                # 是否申领杭州健康码
+                'sfsqhzjkk': '',
+                # 杭州健康吗颜色，1:绿色 2:红色 3:黄色
+                'sqhzjkkys': '1',
+                'gwszgzcs': '',
+                'szgj': '',
+                'fxyy': '',
+                'jcjg': '',
+                'date': get_date(),
+                'created': round(time.time()),
+                'szgjcs': '',
+                'ismoved': '5',
+                'zgfx14rfhsj':'',
+                'campus': '', # 不在校即为空值
+                'verifyCode': ''  ,
+                'internship': '1' # 实习参数 1：否，2：校内实习，3：校外实习
             }
             data.update(verify_code)
             response = self.sess.post('https://healthreport.zju.edu.cn/ncov/wap/default/save', data=data,
